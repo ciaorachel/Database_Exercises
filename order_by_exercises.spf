@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>employees</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-1838747199501650818</string>
+			<key>name</key>
+			<string>codeup mysql</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>ssh_host</key>
+			<string>127.0.0.1</string>
+			<key>ssh_keyLocation</key>
+			<string></string>
+			<key>ssh_keyLocationEnabled</key>
+			<integer>0</integer>
+			<key>ssh_port</key>
+			<integer>2222</integer>
+			<key>ssh_user</key>
+			<string>vagrant</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPSSHTunnelConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>codeup</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSelection</key>
+			<data>
+			YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFy
+			Y2hpdmVyVCR0b3ASAAGGoK0HCBUWFxgZHSQoLDA0VSRudWxs0wkK
+			CwwQFFdOUy5rZXlzWk5TLm9iamVjdHNWJGNsYXNzow0OD4ACgAOA
+			BKMREhOABYAGgAiADFR0eXBlVHJvd3NUa2V5c18QJlNlbGVjdGlv
+			bkRldGFpbFR5cGVQcmltYXJ5S2V5ZWREZXRhaWxz0wkKCxobHKCg
+			gAfSHh8gIVokY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxl
+			RGljdGlvbmFyeaMgIiNcTlNEaWN0aW9uYXJ5WE5TT2JqZWN00goL
+			JSehJoAJgAvSCykqK1lOUy5zdHJpbmeAClZlbXBfbm/SHh8tLl8Q
+			D05TTXV0YWJsZVN0cmluZ6MtLyNYTlNTdHJpbmfSHh8xMl5OU011
+			dGFibGVBcnJheaMxMyNXTlNBcnJhedIeHyI1oiIjXxAPTlNLZXll
+			ZEFyY2hpdmVy0Tg5VGRhdGGAAQAIABEAGgAjAC0AMgA3AEUASwBS
+			AFoAZQBsAHAAcgB0AHYAegB8AH4AgACCAIcAjACRALoAwQDCAMMA
+			xQDKANUA3gD0APgBBQEOARMBFQEXARkBHgEoASoBMQE2AUgBTAFV
+			AVoBaQFtAXUBegF9AY8BkgGXAAAAAAAAAgEAAAAAAAAAOgAAAAAA
+			AAAAAAAAAAAAAZk=
+			</data>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {693, 456}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>USE employees;
+
+SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY first_name, last_name;
+/*Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN. Order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Zweizig. Output: 709 rows*/
+
+
+SELECT concat(first_name,' ', last_name) AS full_name, gender
+FROM employees 
+WHERE gender = 'M'
+AND (
+	first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+);
+/*Add a condition to find everybody with those names who is also male. Output: 441 rows.*/
+
+
+SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE 'E%' 
+	OR last_name LIKE '%e';
+/*Find all employees whose last name starts or ends with 'E'. Output: 30,723 rows.*/
+
+
+SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE 'E%' 
+	AND last_name LIKE '%e';
+/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Output: 899 rows.*/
+
+
+SELECT first_name, last_name, hire_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25';
+/*Find all employees hired in the 90s and born on Christmas. Output: 362 rows.*/
+
+
+
+SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%'
+	AND last_name NOT LIKE '%qu%';
+/*Find all employees with a 'q' in their last name but not 'qu'. Output: 547 rows.*/</string>
+			<key>table</key>
+			<string>employees</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>202</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY last_name</string>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY first_name, last_name</string>
+		<string>/*Find all employees hired in the 90s and born on Christmas. Output: 362 rows.*/
+
+
+
+SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%'
+	AND last_name NOT LIKE '%qu%'</string>
+		<string>/*Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN. Order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Zweizig. Output: 709 rows*/
+
+
+SELECT concat(first_name,' ', last_name) AS full_name, gender
+FROM employees 
+WHERE gender = 'M'
+AND (
+	first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+)</string>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY first_name</string>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY last_name DESC</string>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY first_name ASC</string>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY first_name DESC</string>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+ORDER BY first_name 
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%'
+	AND last_name NOT LIKE '%qu%'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name NOT LIKE '%qu%'
+	AND last_name LIKE '%q%'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%'
+	AND [NOT] LIKE '%qu%'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%'
+	AND NOT LIKE '%qu%'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%'
+AND NOT '%qu%'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE '%q%' IS NOT '%qu%'</string>
+		<string>SELECT first_name, last_name, hire_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25'</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE 'E%' 
+	AND last_name LIKE '%e'</string>
+		<string>last_name LIKE</string>
+		<string>SELECT first_name, last_name 
+FROM employees 
+WHERE last_name LIKE 'E%' 
+	AND '%e'</string>
+		<string>SELECT first_name, last_name FROM employees WHERE last_name LIKE 'E%' 
+OR last_name LIKE '%e'</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.43-0ubuntu0.14.04.1-log</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>
