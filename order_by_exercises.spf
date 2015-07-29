@@ -110,16 +110,16 @@ SELECT emp_no, first_name, last_name
 FROM employees 
 WHERE last_name LIKE 'E%' 
 	OR last_name LIKE '%e'
-ORDER BY emp_no;
-/*Find all employees whose last name starts or ends with 'E'. Sort the results by their employee number. Results do not change. Output: 30,723 rows.*/
+ORDER BY emp_no DESC;
+/*Find all employees whose last name starts or ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 30,723 rows.*/
 
 
 SELECT emp_no, first_name, last_name 
 FROM employees 
 WHERE last_name LIKE 'E%' 
 	AND last_name LIKE '%e'
-ORDER BY emp_no;
-/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Output: 899 rows.*/
+ORDER BY emp_no DESC;
+/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
 
 
 SELECT first_name, last_name, hire_date 
@@ -152,6 +152,22 @@ WHERE last_name LIKE '%q%'
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>/*Add a condition to find everybody with those names who is also male. Sort the results by their employee number descending. Results do not change. Output: 441 rows.*/
+
+
+SELECT emp_no, first_name, last_name 
+FROM employees 
+WHERE last_name LIKE 'E%' 
+	OR last_name LIKE '%e'
+ORDER BY emp_no DESC</string>
+		<string>/*Find all employees whose last name starts or ends with 'E'. Sort the results by their employee number. Results do not change. Output: 30,723 rows.*/
+
+
+SELECT emp_no, first_name, last_name 
+FROM employees 
+WHERE last_name LIKE 'E%' 
+	AND last_name LIKE '%e'
+ORDER BY emp_no DESC</string>
 		<string>/*Find all employees whose last name starts or ends with 'E'. Sort the results by their employee number. Results do not change. Output: 30,723 rows.*/
 
 
@@ -304,20 +320,6 @@ AND (
 	OR first_name = 'Vidya' 
 	OR first_name ='Maya'
 )</string>
-		<string>SELECT concat(first_name,' ', last_name) AS full_name 
-FROM employees
-WHERE first_name = 'Irena' 
-	OR first_name = 'Vidya' 
-	OR first_name ='Maya'
-	AND gender = 'M'
-ORDER BY first_name ASC</string>
-		<string>SELECT concat(first_name,' ', last_name) AS full_name 
-FROM employees
-WHERE first_name = 'Irena' 
-	OR first_name = 'Vidya' 
-	OR first_name ='Maya'
-	AND gender = 'M'
-ORDER BY first_name DESC</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
