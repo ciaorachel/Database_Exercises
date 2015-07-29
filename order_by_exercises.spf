@@ -122,13 +122,13 @@ ORDER BY emp_no DESC;
 /*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
 
 
-SELECT first_name, last_name, hire_date 
+SELECT first_name, last_name, hire_date, birth_date 
 FROM employees 
 WHERE hire_date BETWEEN '1990-01-01' 
 	AND '1999-12-31'
-	AND birth_date LIKE '%-12-25';
-/*Find all employees hired in the 90s and born on Christmas. Output: 362 rows.*/
-
+	AND birth_date LIKE '%-12-25'
+ORDER BY birth_date ASC, hire_date DESC;
+/*Find all employees hired in the 90s and born on Christmas. Change the query such that the first result is the oldest employee who was hired last. It should be Khun Bernini. Output: 362 rows.*/
 
 
 SELECT first_name, last_name 
@@ -152,6 +152,49 @@ WHERE last_name LIKE '%q%'
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
+
+
+SELECT first_name, last_name, hire_date, birth_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25'
+ORDER BY birth_date ASC, hire_date DESC</string>
+		<string>/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
+
+
+SELECT first_name, last_name, hire_date, birth_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25'
+ORDER BY birth_date ASC</string>
+		<string>/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
+
+
+SELECT first_name, last_name, hire_date, birth_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25'
+ORDER BY birth_date</string>
+		<string>/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
+
+
+SELECT first_name, last_name, hire_date, birth_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25'</string>
+		<string>/*Duplicate the previous query and update it to find all employees whose last name starts and ends with 'E'. Sort the results descending by their employee number - this reverses order. Output: 899 rows.*/
+
+
+SELECT first_name, last_name, hire_date 
+FROM employees 
+WHERE hire_date BETWEEN '1990-01-01' 
+	AND '1999-12-31'
+	AND birth_date LIKE '%-12-25'</string>
 		<string>/*Add a condition to find everybody with those names who is also male. Sort the results by their employee number descending. Results do not change. Output: 441 rows.*/
 
 
@@ -286,40 +329,6 @@ WHERE first_name = 'Irena'
 	OR first_name ='Maya'
 	AND gender = 'M'
 ORDER BY last_name</string>
-		<string>SELECT concat(first_name,' ', last_name) AS full_name 
-FROM employees
-WHERE first_name = 'Irena' 
-	OR first_name = 'Vidya' 
-	OR first_name ='Maya'
-	AND gender = 'M'
-ORDER BY first_name</string>
-		<string>SELECT concat(first_name,' ', last_name) AS full_name 
-FROM employees
-WHERE first_name = 'Irena' 
-	OR first_name = 'Vidya' 
-	OR first_name ='Maya'
-	AND gender = 'M'
-ORDER BY first_name, last_name</string>
-		<string>first_name,</string>
-		<string>/*Find all employees hired in the 90s and born on Christmas. Output: 362 rows.*/
-
-
-
-SELECT first_name, last_name 
-FROM employees 
-WHERE last_name LIKE '%q%'
-	AND last_name NOT LIKE '%qu%'</string>
-		<string>/*Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN. Order by first name and then last name. The first result should now be Irena Acton and the last should be Vidya Zweizig. Output: 709 rows*/
-
-
-SELECT concat(first_name,' ', last_name) AS full_name, gender
-FROM employees 
-WHERE gender = 'M'
-AND (
-	first_name = 'Irena' 
-	OR first_name = 'Vidya' 
-	OR first_name ='Maya'
-)</string>
 	</array>
 	<key>rdbms_type</key>
 	<string>mysql</string>
