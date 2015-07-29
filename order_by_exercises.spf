@@ -90,8 +90,8 @@ WHERE first_name = 'Irena'
 	OR first_name = 'Vidya' 
 	OR first_name ='Maya'
 	AND gender = 'M'
-ORDER BY last_name;
-/*Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN. Order by last name before first name. Your first result should still be Irena Acton but now the last result should be Maya Zyda. Output: 709 rows*/
+ORDER BY last_name DESC;
+/*Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN. Order by last name descending. Your last result should still be Irena Acton but now the first result should be Maya Zyda. Output: 709 rows*/
 
 
 SELECT emp_no, concat(first_name,' ', last_name) AS full_name, gender
@@ -102,8 +102,8 @@ AND (
 	OR first_name = 'Vidya' 
 	OR first_name ='Maya'
 )
-ORDER BY emp_no;
-/*Add a condition to find everybody with those names who is also male. Sort the results by their employee number. Results do not change. Output: 441 rows.*/
+ORDER BY emp_no DESC;
+/*Add a condition to find everybody with those names who is also male. Sort the results by their employee number descending. Results do not change. Output: 441 rows.*/
 
 
 SELECT first_name, last_name 
@@ -150,6 +150,13 @@ WHERE last_name LIKE '%q%'
 	<array/>
 	<key>queryHistory</key>
 	<array>
+		<string>SELECT concat(first_name,' ', last_name) AS full_name 
+FROM employees
+WHERE first_name = 'Irena' 
+	OR first_name = 'Vidya' 
+	OR first_name ='Maya'
+	AND gender = 'M'
+ORDER BY last_name DESC</string>
 		<string>/*Update your query for 'Irena', 'Vidya', or 'Maya' to use OR instead of IN. Order by last name before first name. Your first result should still be Irena Acton but now the last result should be Maya Zyda. Output: 709 rows*/
 
 
@@ -249,13 +256,6 @@ AND (
 	OR first_name = 'Vidya' 
 	OR first_name ='Maya'
 )</string>
-		<string>SELECT concat(first_name,' ', last_name) AS full_name 
-FROM employees
-WHERE first_name = 'Irena' 
-	OR first_name = 'Vidya' 
-	OR first_name ='Maya'
-	AND gender = 'M'
-ORDER BY last_name DESC</string>
 		<string>SELECT concat(first_name,' ', last_name) AS full_name 
 FROM employees
 WHERE first_name = 'Irena' 
